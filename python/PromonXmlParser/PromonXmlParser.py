@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import re
 import getopt
 import sys
+import os
 
 
 class CProMonXmlParser:
@@ -27,11 +28,13 @@ class CProMonXmlParser:
 			sDetail = event.find('Detail').text
 
 			if (sOperation == "CreateFile") and (sResult == "SUCCESS"):
+				sPath = os.path.dirname(sPath)
 				self.m_FileSet.add(sPath)
 
 			m = re.match('Reg',sOperation)
 
 			if (m != None) and (sResult == "SUCCESS"):
+				sPath = os.path.dirname(sPath)
 				self.m_RegSet.add(sPath)				
 
 
