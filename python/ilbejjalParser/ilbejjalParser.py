@@ -86,7 +86,6 @@ class Cilbejjalparser:
 				try:
 					f = open(filename,'wb+')
 				except Exception:
-					f.close()
 					continue
 					
 
