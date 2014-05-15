@@ -4,7 +4,7 @@ import os
 import time
 
 SLEEP_TIME = 5
-MAX_BOARD_COUNT = 44
+MAX_BOARD_COUNT = 200
 
 
 class Cilbejjalparser:
@@ -84,6 +84,8 @@ class Cilbejjalparser:
 				data = url.read()
 				filename = os.path.basename(k)					
 				try:
+					if os.path.exists(filename):
+						continue
 					f = open(filename,'wb+')
 				except Exception:
 					continue
